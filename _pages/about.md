@@ -10,7 +10,7 @@ profile:
   address:
 
 publication: true  # includes a list of papers
-publication_years: [2021, 2020]  # to show the papers in these years
+publication_years: [2023, 2022, 2021, 2020]  # to show the papers in these years
 social: true  # includes social icons at the bottom of the page
 ---
 
