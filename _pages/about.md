@@ -19,7 +19,7 @@ social: true  # includes social icons at the bottom of the page
   
   Advisors: Prof. Chao Xu and Prof. Boxin Shi
   
-  Sept. 2019 ~ Present, in Key Laboratory of Machine Perception (MOE), [Dept. of Machine Intelligence](http://www.cis.pku.edu.cn/English/Home.htm){:target="\_blank"}
+  Sept. 2019 ~ Present, in Key Laboratory of Machine Perception (MOE), [School of Intelligence Science and Technology](http://www.cis.pku.edu.cn/English/Home.htm){:target="\_blank"}
   
 * Bachelor of Engineering at [Huazhong University of Science and Technology](http://english.hust.edu.cn/){:target="\_blank"}, Wuhan, China
 
