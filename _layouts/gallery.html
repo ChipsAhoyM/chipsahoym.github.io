@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photographs</title>
+  <link rel="stylesheet" href="path/to/your/styles.css">
+  <!-- Add any additional CSS files or inline styles here -->
+  <style>
+    .photographs {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .photograph {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .photograph img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .photograph-title {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/experiences">Experiences</a></li>
+        <li><a href="/photographs">Photographs</a></li> <!-- Add this line to your navigation -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Photographs</h1>
+    <div class="photographs">
+      <div class="photograph">
+        <img src="path/to/your/image1.jpg" alt="Photograph 1">
+        <div class="photograph-title">Photograph Title 1</div>
+      </div>
+      <div class="photograph">
+        <img src="path/to/your/image2.jpg" alt="Photograph 2">
+        <div class="photograph-title">Photograph Title 2</div>
+      </div>
+      <!-- Add more photograph blocks as needed -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Your Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>
