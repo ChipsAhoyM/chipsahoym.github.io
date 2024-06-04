@@ -13,3 +13,76 @@ $max-content-width: {{site.max_width}};
   "base",
   "distill"
 ;
+
+.icon-small {
+  font-size: 2.5rem; /* Adjust the size as needed */
+  margin: 0 0.5rem; /* Ensure uniform margin */
+}
+
+.mail-small {
+  font-size: 0.6rem; /* Smaller icon size */
+  margin: 0 0.2rem; /* Margin for spacing */
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center; /* Center the icons */
+  align-items: center; /* Vertically center the icons */
+  margin-top: -2rem; /* Adjust the top margin to bring icons closer to the image */
+  margin-bottom: 0; /* Remove any bottom margin */
+}
+
+.btn-custom {
+  display: inline-block;
+  padding: 0.25rem 1rem; /* Adjusted padding for uniform size */
+  font-size: 0.7rem; /* Smaller font size */
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  text-decoration: none !important;
+  margin: 0.2rem; /* Ensure uniform margin */
+}
+
+.btn-custom-pdf {
+  background-color: #5C88C4; /* Primary (blue) */
+  color: black;
+}
+
+.btn-custom-supp {
+  background-color: #3ABEF9; /* Secondary (gray) */
+  color: black;
+}
+
+.btn-custom-code {
+  background-color: #6FDCE3; /* Success (green) */
+  color: black;
+}
+
+.btn-custom-website {
+  background-color: #A7E6FF; /* Info (teal) */
+  color: black;
+}
+
+.btn-custom-bib {
+  background-color: #3AA6B9; /* Primary (blue) - same as PDF for coherence */
+  color: black;
+}
+
+.btn-extra-small {
+  font-size: 0.65rem; /* Extra small font size */
+  padding: 0.25rem 0.5rem; /* Adjust padding for smaller button */
+}
+.center-button {
+  display: flex;
+  justify-content: center;
+}
+
+.img-thumbnail {
+  width: 100%; /* Make the thumbnail responsive */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 0.5rem; /* Add some space below the image */
+}

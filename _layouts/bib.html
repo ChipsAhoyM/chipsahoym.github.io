@@ -2,64 +2,68 @@
 ---
 
 <div class="row">
-  <div class="col-sm-2 abbr">
-  {% if entry.abbr %}
-    {% if site.data.venues[entry.abbr] %}
-    <abbr class="badge"><a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a></abbr>
-    {% else %}
-    <abbr class="badge">{{entry.abbr}}</abbr>
+  <div class="col-sm-3">
+    {% if entry.thumbnail %}
+      <img src="{{ entry.thumbnail }}" alt="Thumbnail for {{ entry.title }}" class="img-thumbnail">
     {% endif %}
-  {% endif %}
   </div>
 
-  <div id="{{entry.key}}" class="col-sm-8">
+  <div id="{{ entry.key }}" class="col-sm-7">
     {% if entry.type == "thesis" %}
-      {{reference}}
+      {{ reference }}
     {% else %}
-      <div class="title">{{entry.title}}</div>
+      <div class="title">{{ entry.title }}</div>
       <div class="author">
         {% for author in entry.author_array %}
           {% assign author_is_self = false %}
-          {% if author.last == site.scholar.last_name%}
-            {% if site.scholar.first_name contains author.first%}
-              {% assign author_is_self = true %}
-            {% endif %}
+          {% assign equal_contribution = false %}
+          
+          {% if author.last contains '*' %}
+            {% assign equal_contribution = true %}
+            <!-- {% assign author.last = author.last | replace: '*', '' %} -->
           {% endif %}
+
+          {% assign cleaned_last_name = author.last | replace: '*', '' %}
+
+          {% if author.last contains site.scholar.last_name %}
+              {% assign author_is_self = true %}
+          {% endif %}
+          
           {% assign coauthor_url = nil %}
-          {% if site.data.coauthors[author.last] %}
-            {% for coauthor in site.data.coauthors[author.last] %}
+          {% if site.data.coauthors[cleaned_last_name] %}
+            {% for coauthor in site.data.coauthors[cleaned_last_name] %}
               {% if coauthor.firstname contains author.first %}
                 {% assign coauthor_url = coauthor.url %}
-                {% break %}
+                {% break %}zw
               {% endif %}
             {% endfor %}
           {% endif %}
           
           {% if forloop.length == 1 %}
             {% if author_is_self %}
-              <em>{{author.first}} {{author.last}}</em>
+              <strong>{{ author.first }} {{ cleaned_last_name }}</strong>{% if equal_contribution %}<sup>*</sup>{% endif %}
             {% else %}
-              {{author.first}} {{author.last}}
+              {{ author.first }} {{ cleaned_last_name }}{% if equal_contribution %}<sup>*</sup>{% endif %}
             {% endif %}
           {% else %}
             {% unless forloop.last %}
               {% if author_is_self %}
-                <em>{{author.first}} {{author.last}}</em>,
+                <strong>{{ author.first }} {{ cleaned_last_name }}</strong>{% if equal_contribution %}<sup>*</sup>{% endif %},
               {% else %}
                 {% if coauthor_url %}
-                  <a href="{{coauthor_url}}" target="_blank">{{author.first}} {{author.last}}</a>,
+                  <a href="{{ coauthor_url }}" target="_blank" style="color: #A78B71; text-decoration: none; border-bottom: none;">{{ author.first }} {{ cleaned_last_name }}</a>{% if equal_contribution %}<sup>*</sup>{% endif %}{% if cleaned_last_name contains 'Shi' %}<sup><i class="fas fa-envelope mail-small"></i></sup>{% endif %},
                 {% else %}
-                  {{author.first}} {{author.last}},
+                  {{ author.first }} {{ cleaned_last_name }}{% if equal_contribution %}<sup>*</sup>{% endif %},
                 {% endif %}
               {% endif %}
             {% else %}
               {% if author_is_self %}
-                and <em>{{author.first}} {{author.last}}</em>
+                and <strong>{{ author.first }} {{ cleaned_last_name }}</strong>{% if equal_contribution %}<sup>*</sup>{% endif %}
               {% else %}
                 {% if coauthor_url %}
-                  and <a href="{{coauthor_url}}" target="_blank">{{author.first}} {{author.last}}</a>
+                  and <a href="{{ coauthor_url }}" target="_blank" style="color: #A78B71; text-decoration: none; border-bottom: none;">{{ author.first }} {{ cleaned_last_name }}</a>{% if equal_contribution %}<sup>*</sup>{% endif %}{% if cleaned_last_name contains 'Shi' %}<sup><i class="fas fa-envelope mail-small"></i></sup>{% endif %}
                 {% else %}
-                  and {{author.first}} {{author.last}}
+                  and {{ author.first }} {{ cleaned_last_name }}{% if equal_contribution %}<sup>*</sup>{% endif %}
                 {% endif %}
               {% endif %}
             {% endunless %}
@@ -68,80 +72,57 @@
       </div>
 
       <div class="periodical">
-      {% if entry.type == "article" %}
-        <em>{{entry.journal}}</em>
-      {% elsif entry.type == "inproceedings" %}
-        <em>In {{entry.booktitle}}</em>
-      {% endif %}
-      {% if entry.year %}
-        {{entry.year}}
-      {% endif %}
+        {% if entry.type == "article" %}
+          <em>{{ entry.journal }}</em>,
+        {% elsif entry.type == "inproceedings" %}
+          <em>In {{ entry.booktitle }}</em>,
+        {% endif %}
+        {% if entry.year %}
+          {{ entry.year }}
+        {% endif %}
       </div>
     {% endif %}
 
     <div class="links">
-    {% if entry.abstract %}
-      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-    {% endif %}
-    {% if entry.arxiv %}
-      <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" target="_blank">arXiv</a>
-    {% endif %}
-    {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-    {% endif %}
-    {% if entry.html %}
-      <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
-    {% endif %}
-    {% if entry.pdf %}
-      {% if entry.pdf contains '://' %}
-      <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank">PDF</a>
-      {% else %}
-      <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">PDF</a>
+      {% if entry.pdf %}
+        {% if entry.pdf contains '://' %}
+          <a href="{{ entry.pdf }}" class="btn-custom btn-custom-pdf" role="button" target="_blank">pdf</a>
+        {% endif %}
       {% endif %}
-    {% endif %}
-    {% if entry.supp %}
-      {% if entry.supp contains '://' %}
-      <a href="{{ entry.supp }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Supp</a>
-      {% else %}
-      <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Supp</a>
+      {% if entry.supp %}
+        {% if entry.supp contains '://' %}
+          <a href="{{ entry.supp }}" class="btn-custom btn-custom-supp" role="button" target="_blank">supp</a>
+        {% endif %}
       {% endif %}
-    {% endif %}
-    {% if entry.blog %}
-      <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Blog</a>
-    {% endif %}
-    {% if entry.code %}
-      <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Code</a>
-    {% endif %}
-    {% if entry.poster %}
-      {% if entry.poster contains '://' %}
-      <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Poster</a>
-      {% else %}
-      <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Poster</a>
+      {% if entry.code %}
+        <a href="{{ entry.code }}" class="btn-custom btn-custom-code" role="button" target="_blank">code</a>
       {% endif %}
-    {% endif %}
-    {% if entry.slides %}
-      {% if entry.slides contains '://' %}
-      <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Slides</a>
-      {% else %}
-      <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Slides</a>
+      {% if entry.website %}
+        <a href="{{ entry.website }}" class="btn-custom btn-custom-website" role="button" target="_blank">web</a>
       {% endif %}
-    {% endif %}
-    {% if entry.website %}
-      <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Website</a>
-    {% endif %}
+      {% if entry.bibtex_show %}
+        <a class="bibtex btn-custom btn-custom-bib" role="button">bib</a>
+      {% endif %}
     </div>
 
-    <!-- Hidden abstract block -->
-    {% if entry.abstract %}
-    <div class="abstract hidden">
-      <p>{{ entry.abstract }}</p>
-    </div>
-    {% endif %}
-
-    <!-- Hidden bibtex block -->
     {% if entry.bibtex_show %}
     <div class="bibtex hidden">
-      {% highlight bibtex %}{{ entry.bibtex }}{% endhighlight %}
+      {% assign cleaned_author_content = entry.author | replace: "*", "" %} 
+      {% capture bibtex_content -%}
+        @{{ entry.type }}{ {{ entry.key }},
+        title = { {{ entry.title | strip }} },
+        author = { {{ cleaned_author_content | strip }} },
+        {% if entry.booktitle %}booktitle = { {{ entry.booktitle | strip }} },{% endif %}{% if entry.journal %}journal = { {{ entry.journal | strip }} },{% endif %}
+        year = { {{ entry.year | strip }} },
+        {% if entry.pages %}pages = { {{ entry.pages | strip }} },{% endif %}
+        {% if entry.volume %}volume = { {{ entry.volume | strip }} },{% endif %}
+        {% if entry.issue %}number = { {{ entry.issue | strip }} },{% endif %}
+      {%- endcapture %}
+      {% assign cleaned_bibtex_content = bibtex_content | replace: "/\n+$/", "" %} 
+      {% highlight bibtex %}
+      {{ cleaned_bibtex_content | strip}} 
+      }
+      {% endhighlight %}
     </div>
     {% endif %}
   </div>
