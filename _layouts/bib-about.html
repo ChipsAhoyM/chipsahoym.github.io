@@ -1,0 +1,31 @@
+---
+---
+
+<div class="publication-item">
+  <a href="{{ entry.url }}" class="publication-link">
+    <div class="publication-title">{{ entry.title }}</div>
+    <div class="publication-authors">
+      {% for author in entry.author_array %}
+        {% assign author_is_self = false %}
+        {% if author.last contains site.scholar.last_name %}
+          {% assign author_is_self = true %}
+        {% endif %}
+        
+        {% if author_is_self %}
+          <strong>{{ author.first }} {{ author.last }}</strong>
+        {% else %}
+          {{ author.first }} {{ author.last }}
+        {% endif %}
+        {% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </div>
+    <div class="publication-venue">
+      {% if entry.type == "article" %}
+        {{ entry.journal }}
+      {% elsif entry.type == "inproceedings" %}
+        {{ entry.booktitle }}
+      {% endif %}
+      {% if entry.year %}, {{ entry.year }}{% endif %}
+    </div>
+  </a>
+</div> 

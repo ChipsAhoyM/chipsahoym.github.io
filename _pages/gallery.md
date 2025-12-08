@@ -20,10 +20,10 @@ nav: true
             </div>
         </div>
         <div class="photograph">
-            <img src="/assets/gallery-thumb/HRB.PNG" alt="Photograph 2" data-full="/assets/gallery/HRB.PNG" class="gallery-image">
+            <img src="/assets/gallery-thumb/CZ5B.png" alt="Photograph 2" data-full="/assets/gallery/CZ5B.JPG" class="gallery-image">
             <div class="photograph-title">
-                <p><i class="fas fa-map-marker-alt"></i> Harbin</p>
-                <p>A building showcases the artistic potential of ice through its sleek, gleaming design</p>
+                <p><i class="fas fa-map-marker-alt"></i> Wenchang</p>
+                <p>The first nighttime launch of China’s Changzheng-5B rocket</p>
             </div>
         </div>
         <div class="photograph">
@@ -34,10 +34,10 @@ nav: true
             </div>
         </div>
         <div class="photograph">
-            <img src="/assets/gallery-thumb/Nara.jpg" alt="Photograph 4" data-full="/assets/gallery/Nara.jpg" class="gallery-image">
+            <img src="/assets/gallery-thumb/StarBay.png" alt="Photograph 4" data-full="/assets/gallery/StarBay.JPG" class="gallery-image">
             <div class="photograph-title">
-                <p><i class="fas fa-map-marker-alt"></i> Nara</p>
-                <p>My friend photographed me sitting and admiring the scenic view</p>
+                <p><i class="fas fa-map-marker-alt"></i> Dalian</p>
+                <p>Xinghai Bay Bridge with a long exposure, surrounded by a smooth sea</p>
             </div>
         </div>
         <div class="photograph">

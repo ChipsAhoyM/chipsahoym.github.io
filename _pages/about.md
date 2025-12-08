@@ -8,14 +8,15 @@ profile:
   image: DDK.JPG
 
 publication: true  # includes a list of papers
-publication_years: [2024, 2023, 2022]  # to show the papers in these years
+publication_years: [2025, 2024, 2023, 2022]  # to show the papers in these years
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a third-year Ph.D. student in the School of Computer Science at Peking University, advised by Prof. Boxin Shi at the <a href="https://camera.pku.edu.cn" target="_blank">Camera Intelligence Lab</a>. My current research area is Computational Photography, with a primary focus on neuromorphic cameras (e.g., DVS, Prophesee, Spike Camera). My goal is to integrate neuromorphic cameras with deep learning to develop the next generation of camera systems, achieving super-human visual sensing and computing. As an amateur photographer, capturing the world through my lens is my hobby. Explore <a href="/gallery/">gallery</a> to see images in the recent time.
+I am a final-year Ph.D. student in the School of Computer Science at Peking University, advised by Prof. Boxin Shi at the <a href="https://camera.pku.edu.cn" target="_blank">Camera Intelligence Lab</a>. My current research interests lie in Computational Photography and Generative AI, with a primary focus on neuromorphic cameras and video generation.
 
-I obtained my B.S. in Computer Science from the School of EECS and my B.H. in History from the Department of History at Peking University in 2021. During my undergraduate studies, I concentrated on low-quality image enhancement guided by event cameras. Additionally, I have a keen interest in contemporary world history, particularly the history of science and technology. My diverse background helps me address problems from different perspectives, which drives my interest in advancing computational photography and contributing to new innovations.
+My goal is to reimagine the future of camera systems by integrating neuromorphic cameras or advanced generative models, unlocking new possibilities in how we capture and create visual experiences. As an amateur photographer, I enjoy capturing the world through my lens. Explore <a href="/gallery/">gallery</a> to see images in the recent time.
 
+I obtained my B.S. in Computer Science from the School of EECS and my B.H. in History from the Department of History at Peking University in 2021. During my undergraduate studies, I concentrated on low-quality image enhancement guided by event cameras. In addition, I maintain a strong interest in contemporary world history, particularly the history of science and technology.
 <br>
 <br>
 <br>
@@ -65,19 +66,19 @@ I obtained my B.S. in Computer Science from the School of EECS and my B.H. in Hi
     <li>
       <i class="fas fa-book-open"></i>
       <div class="text">
-        Reviewer of Conferences: CVPR 2023/2024, ICCV 2023, ECCV 2022/2024, ACCV 2024
+        Reviewer of Conferences: CVPR 2023/2024, ICCV 2023/2025, ECCV 2022/2024, NeurIPS 2025, ICML 2025, AAAI 2025/2026, MM 2025
       </div>
     </li>
     <li>
       <i class="fas fa-book-reader"></i>
       <div class="text">
-        Reviewer of Journal: TCSVT
+        Reviewer of Journal: TPAMI, TIP, TCSVT, TCI
       </div>
     </li>
     <li>
       <i class="fas fa-user-graduate"></i>
       <div class="text">
-        Undergraduate Student Mentor: EECS of Peking University, 2021/9-2025/7
+        Undergraduate Student Mentor: Turing Class, EECS, Peking University, 2021/9-2025/7
       </div>
     </li>
     <li>
@@ -135,26 +136,26 @@ I obtained my B.S. in Computer Science from the School of EECS and my B.H. in Hi
       <a href="https://camera.pku.edu.cn" target="_blank">
         <img src="/assets/img/cameralab.png" alt="Camera Team Logo" class="logo">
         <div class="text">
-          <span class="time">PhD Candidate</span>
-          <span class="time">September 2021 - Present</span>
+          <span class="time">Research Assistant</span>
+          <span class="time">February 2019 - Present</span>
         </div>
       </a>
     </li>
     <li>
-      <a href="https://www.sensetime.com/en" target="_blank">
-        <img src="/assets/img/sensetime.png" alt="Sensetime Logo" class="logo">
+      <a href="https://www.nii.ac.jp/en/" target="_blank">
+        <img src="/assets/img/NII.png" alt="NII Logo" class="logo">
         <div class="text">
-          <span class="time">CV Algorithm Intern</span>
-          <span class="time">April 2023 - October 2023</span>
+          <span class="time">Visiting Student</span>
+          <span class="time"> September 2025 - March 2026</span>
         </div>
       </a>
     </li>
     <li>
-      <a href="https://camera.pku.edu.cn" target="_blank">
-        <img src="/assets/img/cameralab.png" alt="Camera Team Logo" class="logo">
+      <a href="https://apple.com" target="_blank">
+        <img src="/assets/img/apple.png" alt="Apple Logo" class="logo">
         <div class="text">
-          <span class="time">Undergradute Intern</span>
-          <span class="time">February 2019 - October 2021</span>
+          <span class="time">ML Engineer Intern</span>
+          <span class="time">February 2025 - August 2025</span>
         </div>
       </a>
     </li>
