@@ -54,6 +54,15 @@ blockquote {
   margin-left: 1rem;
   width: 100%;
 
+  img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+
   .address {
     margin-bottom: 5px;
     margin-top: 5px;
@@ -203,22 +212,39 @@ blockquote {
 
 .social {
   text-align: center;
+  margin-top: 1rem;
   .contact-icons {
-    font-size: 4rem;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
     a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(128, 128, 128, 0.05);
+      transition: all 0.3s ease;
       i::before {
         color: var(--global-text-color);
-        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.3s ease;
       }
       &:hover {
+        background: var(--global-theme-color);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         i::before {
-          color: var(--global-theme-color);
+          color: white;
         }
       }
     }
   }
   .contact-note {
     font-size: 0.8rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -381,20 +407,33 @@ footer.sticky-bottom {
     }
   }
   h2.year {
-    color: $grey-color-light;
-    border-top: 1px solid $grey-color-light;
-    padding-top: 1rem;
-    margin-top: 2rem;
-    margin-bottom: -2rem;
-    text-align: right;
+    color: var(--global-theme-color);
+    border: none;
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--global-theme-color);
+      border-radius: 2px;
+    }
   }
   ol.bibliography {
     list-style: none;
     padding: 0;
-    margin-top: 0;
+    margin-top: 1.5rem;
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       .abbr {
         height: 2rem;
         margin-bottom: 0.5rem;
@@ -403,6 +442,7 @@ footer.sticky-bottom {
           background-color: var(--global-theme-color);
           padding-left: 1rem;
           padding-right: 1rem;
+          border-radius: 4px;
           a {
             color: white;
             &:hover {
@@ -413,12 +453,18 @@ footer.sticky-bottom {
         .award {
           color: var(--global-theme-color) !important;
           border: 1px solid var(--global-theme-color);
+          border-radius: 4px;
         }
       }
       .title {
-        font-weight: bolder;
+        font-weight: 600;
+        font-size: 1.05rem;
+        line-height: 1.4;
       }
       .author {
+        margin-top: 0.4rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
         a {
           border-bottom: 1px dashed var(--global-theme-color);
           &:hover {
@@ -431,17 +477,31 @@ footer.sticky-bottom {
           font-style: normal;
         }
       }
+      .periodical {
+        margin-top: 0.3rem;
+        font-size: 0.9rem;
+        color: var(--global-text-color-light);
+      }
       .links {
-        a.btn {
+        margin-top: 0.8rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        a.btn, a.btn-custom {
           color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
+          border: 1.5px solid var(--global-text-color);
+          padding: 0.3rem 0.8rem;
+          font-size: 0.8rem;
+          border-radius: 20px;
+          text-decoration: none;
+          transition: all 0.25s ease;
+          font-weight: 500;
           &:hover {
-            color: var(--global-theme-color);
+            color: white;
+            background-color: var(--global-theme-color);
             border-color: var(--global-theme-color);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
           }
         }
       }
@@ -450,37 +510,84 @@ footer.sticky-bottom {
         max-height: 0px;
         overflow: hidden;
         text-align: justify;
-        -webkit-transition: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        transition: all 0.3s ease;
 
         p {
           line-height: 1.4em;
           margin: 10px;
         }
         pre {
-          font-size: 1em;
+          font-size: 0.85em;
           line-height: 1.4em;
-          padding: 10px;
+          padding: 12px;
+          border-radius: 8px;
         }
       }
       .hidden.open {
         max-height: 100em;
-        -webkit-transition: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        margin-top: 0.8rem;
+        transition: all 0.3s ease;
       }
       div.abstract.hidden {
         border: dashed 1px var(--global-bg-color);
+        border-radius: 8px;
       }
       div.abstract.hidden.open {
         border-color: var(--global-text-color);
       }
     }
+  }
+}
+
+// Publication card layout
+.pub-card {
+  background: var(--global-bg-color);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  &:hover {
+    border-color: var(--global-theme-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.pub-card-inner {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.pub-thumbnail {
+  flex-shrink: 0;
+  width: 140px;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  &:hover img {
+    transform: scale(1.03);
+  }
+}
+
+.pub-content {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .pub-card-inner {
+    flex-direction: column;
+  }
+  .pub-thumbnail {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 1rem;
   }
 }
 

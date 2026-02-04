@@ -37,22 +37,28 @@ I obtained my B.S. in Computer Science from the School of EECS and my B.H. in Hi
 <style>
   .btn-transparent {
     background-color: transparent;
-    border: 1px solid #007bff;
-    color: #007bff;
-    padding: 5px 10px;
+    border: 1.5px solid var(--global-theme-color, #007bff);
+    color: var(--global-theme-color, #007bff);
+    padding: 8px 20px;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 25px;
     text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
   }
 
   .btn-transparent:hover {
-    background-color: #007bff;
+    background-color: var(--global-theme-color, #007bff);
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+    text-decoration: none;
   }
 
   .center-button {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 </style>
 
@@ -100,29 +106,48 @@ I obtained my B.S. in Computer Science from the School of EECS and my B.H. in Hi
   .services ul {
     list-style: none;
     padding-left: 0;
+    margin-top: 15px;
   }
 
   .services li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     display: flex;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--global-bg-color, #fff);
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    transition: all 0.2s ease;
+  }
+
+  .services li:hover {
+    border-color: var(--global-theme-color, #007bff);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
   .services i {
-    margin-right: 10px;
-    color: #6c757d;
+    margin-right: 14px;
+    color: var(--global-theme-color, #6c757d);
     font-size: 18px;
     flex-shrink: 0;
     width: 25px;
     text-align: center;
+    margin-top: 2px;
   }
 
   .services .text {
-    line-height: 1.4;
-    font-size: 16px;
+    line-height: 1.5;
+    font-size: 15px;
   }
 
   .services strong {
     font-weight: 600;
+  }
+
+  .services .divider {
+    border: none;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+    margin-bottom: 20px;
   }
 </style>
 
@@ -162,4 +187,111 @@ I obtained my B.S. in Computer Science from the School of EECS and my B.H. in Hi
   </ul>
 </div>
 
-<style> .experience ul { list-style: none; padding-left: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; } .experience li { background-color: #f8f9fa; padding: 20px; border-radius: 5px; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); } .experience .logo { width: auto; height: 40px; object-fit: contain; margin-bottom: 15px; } .experience .text { line-height: 1.4; display: flex; flex-direction: column; } .experience .role { font-size: 16px; font-weight: bold; margin-bottom: 5px; } .experience .time { font-size: 14px; color: #6c757d; } @media (prefers-color-scheme: light) { .divider { border-color: #ddd; } } @media (prefers-color-scheme: dark) { .divider { border-color: #333; } } @media screen and (max-width: 480px) { .experience ul { grid-template-columns: 1fr; } .experience li { padding: 15px; } .experience .logo { height: 30px; margin-bottom: 10px; } .experience .role { font-size: 14px; } .experience .time { font-size: 12px; } } </style>
+<style>
+  .experience ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 15px;
+  }
+
+  .experience li {
+    background-color: var(--global-bg-color, #f8f9fa);
+    padding: 24px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .experience li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--global-theme-color, #007bff);
+  }
+
+  .experience li a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .experience .logo {
+    width: auto;
+    height: 45px;
+    object-fit: contain;
+    margin-bottom: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .experience li:hover .logo {
+    transform: scale(1.05);
+  }
+
+  .experience .text {
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .experience .role {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--global-text-color, #333);
+  }
+
+  .experience .time {
+    font-size: 13px;
+    color: var(--global-text-color-light, #6c757d);
+  }
+
+  .experience .divider {
+    border: none;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+    margin-bottom: 20px;
+  }
+
+  @media (prefers-color-scheme: light) {
+    .divider {
+      border-color: #ddd;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .divider {
+      border-color: #333;
+    }
+    .experience li {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .experience ul {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .experience li {
+      padding: 18px 15px;
+    }
+    .experience .logo {
+      height: 35px;
+      margin-bottom: 12px;
+    }
+    .experience .role {
+      font-size: 14px;
+    }
+    .experience .time {
+      font-size: 12px;
+    }
+  }
+</style>

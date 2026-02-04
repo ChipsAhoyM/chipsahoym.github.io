@@ -1,19 +1,20 @@
 ---
 ---
 
-<div class="row">
-  <div class="col-sm-3">
+<div class="pub-card">
+  <div class="pub-card-inner">
     {% if entry.thumbnail %}
-      <img src="{{ entry.thumbnail }}" alt="Thumbnail for {{ entry.title }}" class="img-thumbnail">
+    <div class="pub-thumbnail">
+      <img src="{{ entry.thumbnail }}" alt="Thumbnail for {{ entry.title }}" loading="lazy">
+    </div>
     {% endif %}
-  </div>
 
-  <div id="{{ entry.key }}" class="col-sm-7">
-    {% if entry.type == "thesis" %}
-      {{ reference }}
-    {% else %}
-      <div class="title">{{ entry.title }}</div>
-      <div class="author">
+    <div id="{{ entry.key }}" class="pub-content">
+      {% if entry.type == "thesis" %}
+        {{ reference }}
+      {% else %}
+        <div class="title">{{ entry.title }}</div>
+        <div class="author">
         {% for author in entry.author_array %}
           {% assign author_is_self = false %}
           {% assign equal_contribution = false %}
@@ -105,25 +106,26 @@
       {% endif %}
     </div>
 
-    {% if entry.bibtex_show %}
-    <div class="bibtex hidden">
-      {% assign cleaned_author_content = entry.author | replace: "*", "" %} 
-      {% capture bibtex_content -%}
-        @{{ entry.type }}{ {{ entry.key }},
-        title = { {{ entry.title | strip }} },
-        author = { {{ cleaned_author_content | strip }} },
-        {% if entry.booktitle %}booktitle = { {{ entry.booktitle | strip }} },{% endif %}{% if entry.journal %}journal = { {{ entry.journal | strip }} },{% endif %}
-        year = { {{ entry.year | strip }} },
-        {% if entry.pages %}pages = { {{ entry.pages | strip }} },{% endif %}
-        {% if entry.volume %}volume = { {{ entry.volume | strip }} },{% endif %}
-        {% if entry.issue %}number = { {{ entry.issue | strip }} },{% endif %}
-      {%- endcapture %}
-      {% assign cleaned_bibtex_content = bibtex_content | replace: "/\n+$/", "" %} 
-      {% highlight bibtex %}
-      {{ cleaned_bibtex_content | strip}} 
-      }
-      {% endhighlight %}
+      {% if entry.bibtex_show %}
+      <div class="bibtex hidden">
+        {% assign cleaned_author_content = entry.author | replace: "*", "" %}
+        {% capture bibtex_content -%}
+          @{{ entry.type }}{ {{ entry.key }},
+          title = { {{ entry.title | strip }} },
+          author = { {{ cleaned_author_content | strip }} },
+          {% if entry.booktitle %}booktitle = { {{ entry.booktitle | strip }} },{% endif %}{% if entry.journal %}journal = { {{ entry.journal | strip }} },{% endif %}
+          year = { {{ entry.year | strip }} },
+          {% if entry.pages %}pages = { {{ entry.pages | strip }} },{% endif %}
+          {% if entry.volume %}volume = { {{ entry.volume | strip }} },{% endif %}
+          {% if entry.issue %}number = { {{ entry.issue | strip }} },{% endif %}
+        {%- endcapture %}
+        {% assign cleaned_bibtex_content = bibtex_content | replace: "/\n+$/", "" %}
+        {% highlight bibtex %}
+        {{ cleaned_bibtex_content | strip}}
+        }
+        {% endhighlight %}
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
   </div>
 </div>
