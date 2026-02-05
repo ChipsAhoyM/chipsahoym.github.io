@@ -10,14 +10,29 @@ This gallery system works with pure HTML/JavaScript - no Python or server-side p
 4. **Thumbnails**: Uses pre-generated thumbnails from `assets/gallery-thumb/` folder for fast loading
 5. **Fallback**: If thumbnail doesn't exist, automatically uses the full image
 
+## Quick Start - Auto Generate Thumbnails
+
+Run this command to automatically generate thumbnails for all images:
+
+```bash
+python3 generate_thumbnails.py
+```
+
+This script will:
+- Scan `assets/gallery/` for images
+- Check if thumbnails exist in `assets/gallery-thumb/`
+- Generate 400x400 thumbnails for any missing images
+- Skip images that already have thumbnails
+
 ## Adding Images
 
 1. **Place your image** in `assets/gallery/` folder (any size/format is fine)
 
-2. **Create a thumbnail** and place it in `assets/gallery-thumb/` folder:
-   - Recommended size: 400x400 pixels
-   - Use the same filename as the original image
-   - Format: JPG, PNG, or any image format
+2. **Run the thumbnail generator**:
+   ```bash
+   python3 generate_thumbnails.py
+   ```
+   Or manually create a thumbnail in `assets/gallery-thumb/` folder (400x400 pixels recommended)
 
 3. **Add to the list** in `assets/gallery-images.js`:
    ```javascript
