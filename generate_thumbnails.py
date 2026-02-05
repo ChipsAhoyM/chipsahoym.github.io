@@ -6,6 +6,7 @@ that don't have corresponding thumbnails in assets/gallery-thumb/
 """
 
 import os
+import sys
 from pathlib import Path
 from PIL import Image, ImageFile
 
@@ -15,7 +16,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 # Configuration
 GALLERY_DIR = Path(__file__).parent / "assets" / "gallery"
 THUMB_DIR = Path(__file__).parent / "assets" / "gallery-thumb"
-THUMB_SIZE = (400, 400)  # Recommended thumbnail size
+THUMB_SIZE = (720, 720)  # Thumbnail size (720p)
 SUPPORTED_FORMATS = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
 OUTPUT_FORMAT = 'JPEG'  # Output format for thumbnails
 OUTPUT_QUALITY = 85  # JPEG quality (1-100)
@@ -64,6 +65,9 @@ def create_thumbnail(source_path, dest_path):
 
 
 def main():
+    # Check for --force flag
+    force_regenerate = '--force' in sys.argv or '-f' in sys.argv
+
     # Ensure directories exist
     if not GALLERY_DIR.exists():
         print(f"Gallery directory not found: {GALLERY_DIR}")
@@ -82,6 +86,8 @@ def main():
         return
 
     print(f"Found {len(gallery_images)} images in gallery")
+    if force_regenerate:
+        print("Force mode: regenerating all thumbnails")
     print("-" * 50)
 
     generated = 0
@@ -92,7 +98,7 @@ def main():
         base_name = get_base_name(img_path.name)
         existing_thumb = find_existing_thumbnail(base_name)
 
-        if existing_thumb:
+        if existing_thumb and not force_regenerate:
             print(f"[SKIP] {img_path.name} - thumbnail exists")
             skipped += 1
         else:
