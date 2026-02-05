@@ -489,19 +489,20 @@ footer.sticky-bottom {
         gap: 0.5rem;
         a.btn, a.btn-custom {
           color: var(--global-text-color);
-          border: 1.5px solid var(--global-text-color);
-          padding: 0.3rem 0.8rem;
+          background: rgba(128, 128, 128, 0.08);
+          border: none;
+          padding: 0.4rem 1rem;
           font-size: 0.8rem;
           border-radius: 20px;
           text-decoration: none;
-          transition: all 0.25s ease;
+          transition: all 0.2s ease;
           font-weight: 500;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
           &:hover {
-            color: white;
-            background-color: var(--global-theme-color);
-            border-color: var(--global-theme-color);
-            transform: translateY(-2px);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            color: var(--global-text-color);
+            background: rgba(128, 128, 128, 0.15);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
           }
         }
       }

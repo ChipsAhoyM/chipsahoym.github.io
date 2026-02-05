@@ -28,53 +28,59 @@ $max-content-width: {{site.max_width}};
   display: flex;
   justify-content: center; /* Center the icons */
   align-items: center; /* Vertically center the icons */
-  margin-top: -2rem; /* Adjust the top margin to bring icons closer to the image */
-  margin-bottom: 0; /* Remove any bottom margin */
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .btn-custom {
   display: inline-block;
-  padding: 0.25rem 1rem; /* Adjusted padding for uniform size */
-  font-size: 0.7rem; /* Smaller font size */
-  font-weight: 400;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   line-height: 1.5;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border: none;
+  border-radius: 20px;
   text-decoration: none !important;
-  margin: 0.2rem; /* Ensure uniform margin */
+  margin: 0.2rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
 }
 
 .btn-custom-pdf {
-  background-color: #5C88C4; /* Primary (blue) */
-  color: black;
+  background: linear-gradient(135deg, #6B8DD6 0%, #5C7BC4 100%);
+  color: white;
 }
 
 .btn-custom-supp {
-  background-color: #3ABEF9; /* Secondary (gray) */
-  color: black;
+  background: linear-gradient(135deg, #5BC0EB 0%, #3AAFE9 100%);
+  color: white;
 }
 
 .btn-custom-code {
-  background-color: #6FDCE3; /* Success (green) */
-  color: black;
+  background: linear-gradient(135deg, #7EDCE0 0%, #5BCDD3 100%);
+  color: white;
 }
 
 .btn-custom-website {
-  background-color: #A7E6FF; /* Info (teal) */
-  color: black;
+  background: linear-gradient(135deg, #B8E8FF 0%, #8DD8F8 100%);
+  color: #333;
 }
 
 .btn-custom-bib {
-  background-color: #3AA6B9; /* Primary (blue) - same as PDF for coherence */
-  color: black;
+  background: linear-gradient(135deg, #4DB8C7 0%, #3AA6B9 100%);
+  color: white;
 }
 
 .btn-extra-small {
-  font-size: 0.65rem; /* Extra small font size */
-  padding: 0.25rem 0.5rem; /* Adjust padding for smaller button */
+  font-size: 0.65rem;
+  padding: 0.3rem 0.6rem;
 }
 .center-button {
   display: flex;

@@ -68,86 +68,138 @@ I obtained my B.S. in Computer Science from the School of EECS and my B.H. in Hi
 ## Services
 <div class="services">
   <hr class="divider">
-  <ul>
-    <li>
-      <i class="fas fa-book-open"></i>
-      <div class="text">
-        Reviewer of Conferences: CVPR 2023/2024, ICCV 2023/2025, ECCV 2022/2024, NeurIPS 2025, ICML 2025, AAAI 2025/2026, MM 2025
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="card-header">
+        <i class="fas fa-edit"></i>
+        <h3>Academic Review</h3>
       </div>
-    </li>
-    <li>
-      <i class="fas fa-book-reader"></i>
-      <div class="text">
-        Reviewer of Journal: TPAMI, TIP, TCSVT, TCI
+      <div class="card-content">
+        <div class="service-item">
+          <span class="label">Conferences</span>
+          <span class="venues">CVPR, ICCV, ECCV, NeurIPS, ICML, AAAI, MM</span>
+        </div>
+        <div class="service-item">
+          <span class="label">Journals</span>
+          <span class="venues">TPAMI, TIP, TCSVT, TCI</span>
+        </div>
       </div>
-    </li>
-    <li>
-      <i class="fas fa-user-graduate"></i>
-      <div class="text">
-        Undergraduate Student Mentor: Turing Class, EECS, Peking University, 2021/9-2025/7
+    </div>
+    <div class="service-card">
+      <div class="card-header">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h3>Teaching & Mentoring</h3>
       </div>
-    </li>
-    <li>
-      <i class="fas fa-chalkboard-teacher"></i>
-      <div class="text">
-        Teaching Assistant: Computational Photography, Spring 2021-2022
+      <div class="card-content">
+        <div class="service-item">
+          <span class="label">Mentor</span>
+          <span class="venues">Turing Class, EECS, PKU (2021-2025)</span>
+        </div>
+        <div class="service-item">
+          <span class="label">TA</span>
+          <span class="venues">Computational Photography (Spring 2022)</span>
+        </div>
+        <div class="service-item">
+          <span class="label">TA</span>
+          <span class="venues">Ideological & Moral Cultivation (Autumn 2022)</span>
+        </div>
       </div>
-    </li>
-    <li>
-      <i class="fas fa-chalkboard-teacher"></i>
-      <div class="text">
-        Teaching Assistant: Ideological & Moral Cultivation and Fundamentals of Law, Autumn 2021-2022
-      </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
 
 <style>
-  .services ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 15px;
-  }
-
-  .services li {
-    margin-bottom: 12px;
-    display: flex;
-    align-items: flex-start;
-    padding: 12px 16px;
-    background: var(--global-bg-color, #fff);
-    border-radius: 8px;
-    border: 1px solid rgba(128, 128, 128, 0.1);
-    transition: all 0.2s ease;
-  }
-
-  .services li:hover {
-    border-color: var(--global-theme-color, #007bff);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .services i {
-    margin-right: 14px;
-    color: var(--global-theme-color, #6c757d);
-    font-size: 18px;
-    flex-shrink: 0;
-    width: 25px;
-    text-align: center;
-    margin-top: 2px;
-  }
-
-  .services .text {
-    line-height: 1.5;
-    font-size: 15px;
-  }
-
-  .services strong {
-    font-weight: 600;
-  }
-
   .services .divider {
     border: none;
     border-top: 1px solid rgba(128, 128, 128, 0.2);
     margin-bottom: 20px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--global-bg-color, #fff);
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    border-radius: 12px;
+    padding: 20px 24px;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--global-theme-color, #007bff);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+  }
+
+  .card-header i {
+    color: var(--global-theme-color, #007bff);
+    font-size: 20px;
+  }
+
+  .card-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--global-text-color, #333);
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .service-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .service-item .label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--global-theme-color, #007bff);
+    background: rgba(0, 123, 255, 0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    min-width: 75px;
+    text-align: center;
+  }
+
+  .service-item .venues {
+    font-size: 14px;
+    color: var(--global-text-color, #555);
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 600px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .service-card {
+      padding: 16px 18px;
+    }
+    .service-item {
+      flex-direction: column;
+      gap: 4px;
+    }
+    .service-item .label {
+      min-width: auto;
+    }
   }
 </style>
 
