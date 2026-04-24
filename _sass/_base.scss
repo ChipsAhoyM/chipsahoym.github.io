@@ -409,35 +409,23 @@ footer.sticky-bottom {
   h2.year {
     color: var(--global-theme-color);
     border: none;
-    padding-top: 0.3rem;
-    margin-top: 1rem;
-    margin-bottom: 0.2rem;
+    padding: 0;
+    margin: 0.8rem 0 0.1rem;
     text-align: left;
-    font-size: 1.35rem;
+    font-size: 1rem;
     font-weight: 600;
-    position: relative;
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 32px;
-      height: 2px;
-      background: var(--global-theme-color);
-      border-radius: 2px;
-    }
-    &:first-of-type {
-      margin-top: 0.3rem;
-    }
+    letter-spacing: 0.5px;
+    &::after { display: none; }
+    &:first-of-type { margin-top: 0; }
   }
   ol.bibliography {
     list-style: none;
     padding: 0;
-    margin-top: 0.6rem;
+    margin-top: 0;
     margin-bottom: 0;
 
     li {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0;
       .abbr {
         height: 2rem;
         margin-bottom: 0.5rem;
@@ -462,13 +450,13 @@ footer.sticky-bottom {
       }
       .title {
         font-weight: 600;
-        font-size: 1.05rem;
-        line-height: 1.4;
+        font-size: 0.98rem;
+        line-height: 1.3;
       }
       .author {
-        margin-top: 0.4rem;
-        font-size: 0.95rem;
-        line-height: 1.6;
+        margin-top: 0.15rem;
+        font-size: 0.85rem;
+        line-height: 1.35;
         a {
           border-bottom: 1px dashed var(--global-theme-color);
           &:hover {
@@ -482,27 +470,27 @@ footer.sticky-bottom {
         }
       }
       .periodical {
-        margin-top: 0.15rem;
-        font-size: 0.85rem;
+        margin-top: 0.1rem;
+        font-size: 0.78rem;
         color: var(--global-text-color-light);
       }
       .links {
-        margin-top: 0.45rem;
+        margin-top: 0.25rem;
         display: flex;
         flex-wrap: wrap;
-        gap: 0.3rem;
+        gap: 0.25rem;
         a.btn, a.btn-custom {
           color: var(--global-text-color);
           background: rgba(128, 128, 128, 0.08);
           border: none;
-          padding: 0.25rem 0.7rem;
-          font-size: 0.75rem;
+          padding: 0.12rem 0.55rem;
+          font-size: 0.7rem;
           border-radius: 20px;
           text-decoration: none;
           transition: all 0.2s ease;
           font-weight: 500;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-          min-width: 48px;
+          min-width: auto;
           text-align: center;
           &:hover {
             color: var(--global-text-color);
@@ -546,42 +534,46 @@ footer.sticky-bottom {
   }
 }
 
-// Publication card layout
+// Publication card layout — flat compact list
 .pub-card {
-  background: var(--global-bg-color);
-  border: 1px solid rgba(128, 128, 128, 0.1);
-  border-radius: 10px;
-  padding: 0.6rem 0.8rem;
-  margin-bottom: 0;
-  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.12);
+  transition: background 0.2s ease;
   max-width: 100%;
-  overflow: hidden;
+
   &:hover {
-    border-color: var(--global-theme-color);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+    background: rgba(128, 128, 128, 0.04);
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(128, 128, 128, 0.12);
   }
+}
+
+.publications ol.bibliography li:last-child .pub-card {
+  border-bottom: none;
 }
 
 .pub-card-inner {
   display: flex;
-  gap: 0.9rem;
+  gap: 0.75rem;
   align-items: flex-start;
 }
 
 .pub-thumbnail {
   flex-shrink: 0;
-  width: 110px;
+  width: 72px;
   img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
+    width: 72px;
+    height: 72px;
+    border-radius: 4px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: none;
   }
-  &:hover img {
-    transform: scale(1.03);
-  }
+  &:hover img { transform: none; }
 }
 
 .pub-content {
@@ -593,13 +585,10 @@ footer.sticky-bottom {
 }
 
 @media (max-width: 600px) {
-  .pub-card-inner {
-    flex-direction: column;
-  }
+  .pub-card-inner { gap: 0.6rem; }
   .pub-thumbnail {
-    width: 100%;
-    max-width: 160px;
-    margin: 0 auto 0.6rem;
+    width: 56px;
+    img { width: 56px; height: 56px; }
   }
 }
 
