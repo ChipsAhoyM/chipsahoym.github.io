@@ -2,59 +2,33 @@
 layout: default
 ---
 
-<div class="post">
-
-  <header class="post-header">
-    <h2 class="post-title">
-     {% if site.title == "blank" %}{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}{% else %}{{ site.title }}{% endif %} {% if site.chinese_name %}({{site.chinese_name}}){% endif %}
-    </h2>
-     <p class="desc">{{ page.description }}</p>
-  </header>
-  <hr>
-
-  <article>
-    {% if page.profile -%}
-    <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
-      {%- if page.profile.image %}
-        {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
-
-        {% if page.profile.image_circular %}
-          {%- assign profile_image_class = "img-fluid z-depth-1 rounded-circle" -%}
-        {% else %}
-          {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
-        {% endif %}
-
-        {% include figure.html 
-        path=profile_image_path 
-        class=profile_image_class
-        alt=page.profile.image -%}
-      {% endif -%}
-      {%- if page.social %}
-      <!-- Social -->
-      <div class="social">
-        <div class="contact-icons">
-        {% include social.html %}
-        </div>
-        <div class="contact-note">
-          {{ site.contact_note }}
-        </div>
+<!-- Hero Section (full-bleed) -->
+<div class="hero-section">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1 class="hero-name">
+        {% if site.title == "blank" %}{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}{% else %}{{ site.title }}{% endif %}
+        {% if site.chinese_name %}<span class="hero-name-cn">({{ site.chinese_name }})</span>{% endif %}
+      </h1>
+      <p class="hero-subtitle">Ph.D. Candidate &nbsp;·&nbsp; Peking University</p>
+{% if page.social %}
+      <div class="social hero-social">
+        <div class="contact-icons">{% include social.html %}</div>
       </div>
-      {%- endif %}
+      {% endif %}
     </div>
-    {%- endif %}
-
-    <div class="clearfix">
-      {{ content }}
+    {% if page.profile and page.profile.image %}
+    <div class="hero-photo">
+      {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
+      {% include figure.html path=profile_image_path class="img-fluid z-depth-1 rounded-circle" alt=page.profile.image %}
     </div>
+    {% endif %}
+  </div>
+</div>
 
-    <!-- {% if page.social %}
-    <div class="social">
-      <div class="contact-icons">
-        {% include social.html %}
-      </div>
-      <div class="contact-note">{{ site.contact_note }}</div>
-    </div>
-    {% endif %} -->
-  </article>
-
+<!-- Main Content -->
+<div class="post about-content">
+  <div class="clearfix">
+    {{ content }}
+  </div>
 </div>
