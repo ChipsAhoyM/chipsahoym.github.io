@@ -8,7 +8,7 @@ profile:
   image: profile/DDK.JPG
 
 publication: true  # includes a list of papers
-publication_years: [2025, 2024, 2023, 2022]  # to show the papers in these years
+publication_years: [2026, 2025, 2024, 2023, 2022]  # to show the papers in these years
 social: true  # includes social icons at the bottom of the page
 ---
 
