@@ -18,6 +18,8 @@ I obtained my B.S. in Computer Science from the School of EECS and my B.H. in Hi
 
 Outside of research, I am a railway and aviation enthusiast, and I enjoy photography — some of my shots can be found in the <a href="/gallery">gallery</a>. I also share photos and stories on <a href="{{ site.rednote_url }}" target="_blank">Xiaohongshu (RedNote)</a>; feel free to follow and say hi!
 
+{% include news.html %}
+
 ## Selected Publications
 <div class="publications">
 <p><sup>*</sup> Equal Contribution</p>

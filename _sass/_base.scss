@@ -199,13 +199,57 @@ blockquote {
 
 // News
 
+.news {
+  margin: 2rem 0 2.5rem;
+}
+
+.about-content .news h2 {
+  border-left: 0;
+  padding-left: 0;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 1.3rem;
+}
+
+.news table {
+  margin-bottom: 0;
+}
+
 .news table td {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: var(--global-text-color);
+  line-height: 1.45;
+  padding: 0.7rem 0 0.7rem 2.2rem;
+  vertical-align: top;
 }
 
 .news table th {
   color: var(--global-text-color);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 0;
+  white-space: nowrap;
+  width: 9rem;
+  vertical-align: top;
+}
+
+@media screen and (max-width: 600px) {
+  .news table th,
+  .news table td {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .news table th {
+    padding-bottom: 0.2rem;
+  }
+
+  .news table td {
+    padding-top: 0;
+  }
 }
 
 // Social (bottom)
