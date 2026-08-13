@@ -7,7 +7,7 @@ layout: default
   <div class="hero-inner">
     <div class="hero-text">
       <h1 class="hero-name">
-        {% if site.title == "blank" %}{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}{% else %}{{ site.title }}{% endif %}
+        {% if site.title == "blank" %}{{ site.first_name }} {{ site.last_name }}{% else %}{{ site.title }}{% endif %}
         {% if site.chinese_name %}<span class="hero-name-cn">({{ site.chinese_name }})</span>{% endif %}
       </h1>
 {% if page.social %}

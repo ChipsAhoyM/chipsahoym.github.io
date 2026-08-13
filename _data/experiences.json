@@ -1,5 +1,13 @@
 [
   {
+    "name": "Apple",
+    "url": "https://apple.com",
+    "logo": "apple.png",
+    "logo_light": "apple-light.png",
+    "role": "ML Engineer",
+    "period": "June 2026 - Present"
+  },
+  {
     "name": "Camera Intelligence Lab, PKU",
     "url": "https://camera.pku.edu.cn",
     "logo": "cameralab.png",
