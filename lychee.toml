@@ -1,0 +1,10 @@
+# lychee link checker configuration.
+# Academic publishers (IEEE/Springer/OpenReview) and GitHub often return
+# 403/418/429 to bots even when the resource exists, so those are accepted.
+accept = ["200..=204", "300..=304", "403", "405", "418", "429"]
+timeout = 20
+max-retries = 3
+retry-wait-time = 5
+exclude-all-private = true
+exclude-mail = true
+exclude = ["scholar.google.com"]

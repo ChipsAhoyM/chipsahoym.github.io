@@ -1,0 +1,43 @@
+name: Link check
+
+on:
+  schedule:
+    - cron: '37 4 1 * *' # monthly on the 1st
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Extract URLs from bibliography
+        run: |
+          grep -oE 'https?://[^ "},]+' _bibliography/papers.bib | sed 's/[,}]$//' | sort -u > bib-urls.txt
+          cat bib-urls.txt
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: >-
+            --config lychee.toml
+            --base https://tengminggui.cn
+            --no-progress
+            _site bib-urls.txt

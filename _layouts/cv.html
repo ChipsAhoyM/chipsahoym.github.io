@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<style>
+  .cv-section h2 { font-size: 1.15rem; font-weight: 400; margin-top: 1.8rem; margin-bottom: 0.8rem; border-bottom: 1px solid rgba(128, 128, 128, 0.25); padding-bottom: 0.3rem; }
+  .cv-header h1 { margin-bottom: 0.2rem; }
+  .cv-subtitle { color: var(--global-text-color-light); margin-bottom: 0.3rem; }
+  .cv-contact { color: var(--global-text-color-light); font-size: 0.9rem; }
+  .cv-contact a { color: var(--global-theme-color); }
+  .cv-item { margin-bottom: 0.9rem; }
+  .cv-item .row1 { display: flex; justify-content: space-between; flex-wrap: wrap; }
+  .cv-item .row1 .left { font-weight: 400; }
+  .cv-item .row1 .right { color: var(--global-text-color-light); }
+  .cv-item .sub { color: var(--global-text-color-light); font-size: 0.9rem; }
+  ul.cv-pubs { list-style: none; padding-left: 0; }
+  ul.cv-pubs li { margin-bottom: 0.7rem; font-size: 0.92rem; }
+  .cv-pub-title { font-weight: 400; }
+  .cv-pub-meta { color: var(--global-text-color-light); }
+  .cv-pub-meta a { color: var(--global-theme-color); }
+  @media print {
+    header, footer, .no-print { display: none !important; }
+    body { padding-top: 0 !important; }
+  }
+</style>
+
+<div class="cv">
+  <div class="cv-header">
+    <h1>{{ site.first_name }} {{ site.last_name }}{% if site.chinese_name %} <span style="font-weight:300">({{ site.chinese_name }})</span>{% endif %}</h1>
+    <p class="cv-subtitle">Machine Learning Engineer · Computational Photography · Generative AI</p>
+    <p class="cv-contact">
+      <a href="mailto:{{ site.email | encode_email }}">{{ site.email }}</a>
+      · <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank" rel="noopener">Google Scholar</a>
+      · <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+      {% if site.orcid_id %}· <a href="https://orcid.org/{{ site.orcid_id }}" target="_blank" rel="noopener">ORCID</a>{% endif %}
+      · <a href="{{ '/' | relative_url }}">Homepage</a>
+    </p>
+    <button class="btn btn-outline-secondary btn-sm no-print" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <section class="cv-section">
+    <h2>Education</h2>
+    {% for edu in site.data.education %}
+    <div class="cv-item">
+      <div class="row1"><span class="left">{{ edu.degree }}</span><span class="right">{{ edu.period }}</span></div>
+      <div class="sub">{{ edu.school }}{% if edu.note %} · {{ edu.note }}{% endif %}</div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <section class="cv-section">
+    <h2>Experience</h2>
+    {% for exp in site.data.experiences %}
+    <div class="cv-item">
+      <div class="row1"><span class="left">{{ exp.role }}, {{ exp.name }}</span><span class="right">{{ exp.period }}</span></div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <section class="cv-section">
+    <h2>Publications</h2>
+    <ul class="cv-pubs">
+      {% bibliography -f papers --template cv-bib %}
+    </ul>
+  </section>
+
+  <section class="cv-section">
+    <h2>Services</h2>
+    {% for card in site.data.services %}
+      {% for item in card.items %}
+      <div class="cv-item">
+        <div class="row1">
+          <span class="left">{{ item.label }}{% if item.time %} <span class="sub">({{ item.time }})</span>{% endif %}</span>
+          <span class="right">{{ item.venues }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    {% endfor %}
+  </section>
+</div>

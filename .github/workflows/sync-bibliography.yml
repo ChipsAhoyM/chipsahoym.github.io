@@ -1,0 +1,37 @@
+name: Sync bibliography
+
+on:
+  schedule:
+    - cron: '17 3 1 * *' # monthly on the 1st
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sync metadata from DBLP
+        run: python3 .github/scripts/sync_bib.py --source dblp --apply --update-config
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'Sync bibliography metadata from DBLP'
+          title: 'Sync bibliography metadata from DBLP'
+          branch: bib-sync
+          delete-branch: true
+          body: |
+            Automated metadata sync from [DBLP](https://dblp.org):
+            fills missing volume/number/pages/publisher/doi in `_bibliography/papers.bib`
+            (existing values and custom fields are never overwritten).

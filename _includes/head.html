@@ -14,21 +14,28 @@
 </title>
 <meta name="description" content="{{ site.description | strip_newlines | strip }}">
 
-<!-- Open Graph -->
+<!-- Open Graph / Twitter Cards -->
 {% if site.serve_og_meta %}
+{% capture og_title %}{% if page.title != "blank" and page.url != "/" %}{{ page.title }}{% else %}{{ site.first_name }} {{ site.last_name }}{% endif %}{% endcapture %}
+{% capture og_image %}{%- if page.og_image -%}{{ page.og_image | absolute_url }}{%- elsif site.og_image -%}{{ site.og_image | absolute_url }}{%- endif -%}{% endcapture %}
 <meta property="og:site_name" content="{% if site.title == "blank" %}{{ site.first_name }} {{ site.last_name }}{% else %}{{ site.title }}{% endif %}" />
-<meta property="og:type" content="object" />
-<meta property="og:title" content="{% if page.title != "blank" %}{{ page.title }}{% else %}{{ site.first_name }} {{ site.last_name }}{% endif %}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ og_title | strip }}" />
 <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}" />
 <meta property="og:description" content="{{ site.description | strip_newlines | strip }}" />
-<meta property="og:image" content="{%- if page.og_image -%}{{ page.og_image }}{%- else -%}{{ site.og_image }}{%- endif -%}" />
+{% if og_image != empty %}<meta property="og:image" content="{{ og_image | strip }}" />{% endif %}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ og_title | strip }}" />
+<meta name="twitter:description" content="{{ site.description | strip_newlines | strip }}" />
+{% if og_image != empty %}<meta name="twitter:image" content="{{ og_image | strip }}" />{% endif %}
 {% endif %}
 
-<!-- Bootstrap & MDB (self-hosted, see assets/vendor/) -->
+<!-- Bootstrap 5 (self-hosted, see assets/vendor/) -->
 <link rel="stylesheet" href="{{ '/assets/vendor/bootstrap/bootstrap.min.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/vendor/mdb/mdb.min.css' | relative_url }}">
 
 <!-- Fonts & Icons (self-hosted; CJK text falls back to system fonts) -->
+<link rel="preload" href="{{ '/assets/fonts/roboto-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/roboto-slab-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ '/assets/css/fonts.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/vendor/fontawesome/css/all.min.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/vendor/academicons/css/academicons.min.css' | relative_url }}">
@@ -43,14 +50,45 @@
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
-<!-- JQuery (self-hosted) -->
-{% include scripts/jquery.html %}
+<!-- Preload the LCP hero photo on the homepage -->
+{% if page.url == "/" %}
+<link rel="preload" href="{{ '/assets/img/profile/DDK.JPG' | relative_url }}" as="image">
+{% endif %}
 
 <!-- Theming-->
 {% if site.enable_darkmode %}
 <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/dark_mode.js' | relative_url }}"></script>
 {% endif %}
+
+<!-- Structured data (Person) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.first_name }} {{ site.last_name }}",
+  "alternateName": "{{ site.chinese_name }}",
+  "url": "{{ site.url }}",
+  "image": "{{ '/assets/img/profile/DDK.JPG' | absolute_url }}",
+  "email": "mailto:{{ site.email }}",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Apple"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Peking University"
+  },
+  "sameAs": [
+    "https://scholar.google.com/citations?user={{ site.scholar_userid }}",
+    "https://github.com/{{ site.github_username }}",
+    "https://orcid.org/{{ site.orcid_id }}",
+    "https://www.semanticscholar.org/author/Minggui-Teng/1557343782"
+    {% if site.dblp_url %},"{{ site.dblp_url }}"{% endif %}
+    {% if site.linkedin_username %},"https://www.linkedin.com/in/{{ site.linkedin_username }}"{% endif %}
+  ]
+}
+</script>
 
 {% if site.enable_google_analytics %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
