@@ -18,7 +18,10 @@ body h1 {
   font-weight: 400;
 }
 
-.table {
+.table,
+.table th,
+.table td {
+  background-color: transparent;
   color: var(--global-text-color);
   // Bootstrap 5.3 gives tables a white background via --bs-table-bg; make it
   // transparent so tables follow the page background in dark mode.

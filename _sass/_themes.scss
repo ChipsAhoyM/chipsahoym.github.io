@@ -4,6 +4,11 @@
  
 :root {
   color-scheme: light;
+  // Map Bootstrap 5 component variables onto the theme so nothing (tables,
+  // dropdowns, etc.) keeps a hardcoded light background in dark mode.
+  --bs-body-bg: #{$white-color};
+  --bs-body-color: #{$black-color};
+  --bs-emphasis-color: #{$black-color};
   --global-bg-color: #{$white-color};
   --global-code-bg-color: #{$code-bg-color-light};
   --global-text-color: #{$black-color};
@@ -27,6 +32,9 @@
 
 html[data-theme='dark'] {
   color-scheme: dark;
+  --bs-body-bg: #{$grey-color-dark};
+  --bs-body-color: #{$grey-color-light};
+  --bs-emphasis-color: #{$grey-color-light};
   --global-bg-color: #{$grey-color-dark};
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$grey-color-light};

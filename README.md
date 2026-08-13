@@ -9,8 +9,6 @@ Personal academic website built with Jekyll, based on the [al-folio](https://git
 - Publications with BibTeX support (data in `_bibliography/papers.bib`)
   and DOI links
 - News feed on the homepage (posts in `_news/`)
-- Print-friendly CV page at `/cv/` (generated from `_data/education.json`,
-  `_data/experiences.json`, `_bibliography/papers.bib` and `_data/services.json`)
 - Photo gallery with fullscreen viewer
 - Dark mode, responsive design
 - Open Graph / Twitter cards + JSON-LD Person structured data (Google Scholar,
@@ -55,7 +53,6 @@ via `.github/workflows/pages.yml` on every push to `main`.
   Add a `doi` field to get a "doi" link on the paper card.
 - **News**: add a Markdown file to `_news/` with `date`, `display_date` and `title` front matter.
 - **Experiences / Services**: edit `_data/experiences.json` and `_data/services.json`.
-- **CV**: edit `_data/education.json`; the rest of the CV is generated automatically.
 - **Gallery**: add the full-size image to `assets/gallery/` and register it in
   `assets/gallery-images.js`. Exif metadata (including GPS) is stripped from the
   published images; keep originals out of this repo.
