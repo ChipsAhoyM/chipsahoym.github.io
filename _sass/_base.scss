@@ -20,6 +20,10 @@ body h1 {
 
 .table {
   color: var(--global-text-color);
+  // Bootstrap 5.3 gives tables a white background via --bs-table-bg; make it
+  // transparent so tables follow the page background in dark mode.
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--global-text-color);
 }
 
 // MDB z-depth-1 shadow, kept for the profile photo (figure include)

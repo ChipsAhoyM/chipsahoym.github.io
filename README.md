@@ -6,8 +6,8 @@ Personal academic website built with Jekyll, based on the [al-folio](https://git
 
 ## Features
 
-- Publications with BibTeX support (data in `_bibliography/papers.bib`),
-  DOI links and live citation counts from Semantic Scholar
+- Publications with BibTeX support (data in `_bibliography/papers.bib`)
+  and DOI links
 - News feed on the homepage (posts in `_news/`)
 - Print-friendly CV page at `/cv/` (generated from `_data/education.json`,
   `_data/experiences.json`, `_bibliography/papers.bib` and `_data/services.json`)
@@ -52,7 +52,7 @@ via `.github/workflows/pages.yml` on every push to `main`.
 ## Content
 
 - **Publications**: edit `_bibliography/papers.bib`; `selected=true` entries appear on the homepage.
-  Add a `doi` field to get a "doi" link and a citation-count badge.
+  Add a `doi` field to get a "doi" link on the paper card.
 - **News**: add a Markdown file to `_news/` with `date`, `display_date` and `title` front matter.
 - **Experiences / Services**: edit `_data/experiences.json` and `_data/services.json`.
 - **CV**: edit `_data/education.json`; the rest of the CV is generated automatically.
