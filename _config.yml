@@ -48,23 +48,8 @@ og_image: /assets/img/og-image.jpg # The site-wide (default for all links) Open 
 # Social integration
 # -----------------------------------------------------------------------------
 
-github_username: ChipsAhoyM # your GitHub user name
-gitlab_username: # your GitLab user name
-twitter_username: # your Twitter handle
-linkedin_username: # your LinkedIn user name
+# Only these profiles are displayed; email is configured under Site settings.
 scholar_userid: BukbqcwAAAAJ # your Google Scholar ID
-orcid_id: 0000-0002-9234-4243 # your ORCID ID
-semanticscholar_userid: 1557343782 # your Semantic Scholar author ID
-medium_username: # your Medium username
-quora_username: # your Quora username
-publons_id: # your ID on Publons
-research_gate_profile: # your profile on ResearchGate
-blogger_url: # your blogger URL
-work_url: # work page URL
-keybase_username: # your keybase user name
-wikidata_id: # your wikidata id
-dblp_url: # your DBLP profile url (e.g. https://dblp.org/pid/xx/xxxx) - resolved automatically by the bib sync action
-stackoverflow_id: #your stackoverflow id
 instagram_id: teddy.teng.99 # your instagram id
 rednote_url: https://xhslink.com/m/A2QdHAxHbCs # your Xiaohongshu (小红书) profile URL
 

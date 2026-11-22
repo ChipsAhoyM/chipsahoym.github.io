@@ -12,7 +12,7 @@ Personal academic website built with Jekyll, based on the [al-folio](https://git
 - Photo gallery with fullscreen viewer
 - Dark mode, responsive design
 - Open Graph / Twitter cards + JSON-LD Person structured data (Google Scholar,
-  ORCID, Semantic Scholar, GitHub)
+  Instagram, Xiaohongshu; email is listed separately)
 - Bootstrap 5 only (no MDB, no jQuery); all CSS/JS/fonts are self-hosted under
   `assets/vendor/` and `assets/fonts/` — no CDN dependencies, works well from
   mainland China. MathJax loads only on pages with `math: true` front matter.
@@ -39,10 +39,9 @@ via `.github/workflows/pages.yml` on every push to `main`.
 
 ## Automation
 
-- `.github/workflows/sync-bibliography.yml` (monthly) fills missing
-  volume/number/pages/publisher/doi in `papers.bib` from DBLP and opens a PR.
-  Run it locally with `python3 .github/scripts/sync_bib.py --apply`
-  (add `--source crossref` when dblp.org is unreachable).
+- Publication auto-sync is permanently disabled. The bibliography sync workflow
+  and script have been removed; publication content is maintained manually in
+  `_bibliography/papers.bib`. Do not re-enable automatic publication updates.
 - `.github/workflows/link-check.yml` (monthly) checks all links on the site and
   in the bibliography with [lychee](https://lychee.cli.rs/) (config in `lychee.toml`).
 - `.github/dependabot.yml` keeps GitHub Actions and Ruby gems up to date.
